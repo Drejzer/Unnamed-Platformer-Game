@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/matchers/EqualsArgumentMatcher.gd"
 }, {
+"base": "Reference",
+"class": "Fonts",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/ui/Fonts.gd"
+}, {
 "base": "Resource",
 "class": "Fuzzer",
 "language": "GDScript",
@@ -594,6 +599,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/Result.gd"
 }, {
+"base": "RichTextEffect",
+"class": "RichTextEffectBackground",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/ui/parts/RichTextEffectBackground.gd"
+}, {
+"base": "RichTextLabel",
+"class": "RichTextLabelExt",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/ui/parts/RichTextLabelExt.gd"
+}, {
 "base": "Resource",
 "class": "SignalHandler",
 "language": "GDScript",
@@ -649,6 +664,7 @@ _global_script_class_icons={
 "Comparator": "",
 "DefaultValueProvider": "",
 "EqualsArgumentMatcher": "",
+"Fonts": "",
 "Fuzzer": "",
 "FuzzerTool": "",
 "Fuzzers": "",
@@ -752,6 +768,8 @@ _global_script_class_icons={
 "RPCGdUnitTestSuite": "",
 "RPCMessage": "",
 "Result": "",
+"RichTextEffectBackground": "",
+"RichTextLabelExt": "",
 "SignalHandler": "",
 "StringFuzzer": "",
 "TimeUnit": "",
@@ -766,6 +784,10 @@ _global_script_class_icons={
 
 config/name="Unnamed Platformer Game"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
 
 [gdnative]
 
