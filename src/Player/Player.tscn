@@ -31,6 +31,3 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-cast_to = Vector2( 10, 0 )
