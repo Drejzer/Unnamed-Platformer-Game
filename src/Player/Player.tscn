@@ -1,6 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
+<<<<<<< Updated upstream
+=======
+radius = 8.0
+height = 2.0
+>>>>>>> Stashed changes
 
 [node name="Player" type="KinematicBody2D"]
 
