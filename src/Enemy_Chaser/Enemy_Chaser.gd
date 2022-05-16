@@ -1,5 +1,7 @@
 extends KinematicBody2D
+
 const SPEED = 45
+
 var velocity = Vector2()
 var layer = null
 var enemy = null

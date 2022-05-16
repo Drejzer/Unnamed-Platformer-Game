@@ -179,6 +179,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/asserts/GdUnitAssertImpl.gd"
 }, {
+"base": "Reference",
+"class": "GdUnitAwaiter",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/GdUnitAwaiter.gd"
+}, {
 "base": "GdUnitAssert",
 "class": "GdUnitBoolAssert",
 "language": "GDScript",
@@ -198,6 +203,11 @@ _global_script_classes=[ {
 "class": "GdUnitClassDoubler",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/GdUnitClassDoubler.gd"
+}, {
+"base": "Reference",
+"class": "GdUnitConstants",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/GdUnitConstants.gd"
 }, {
 "base": "GdUnitAssert",
 "class": "GdUnitDictionaryAssert",
@@ -349,11 +359,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/GdUnitProperty.gd"
 }, {
-"base": "Node",
-"class": "GdUnitPushErrorHandler",
-"language": "GDScript",
-"path": "res://addons/gdUnit3/src/network/GdUnitPushErrorHandler.gd"
-}, {
 "base": "Resource",
 "class": "GdUnitReport",
 "language": "GDScript",
@@ -394,10 +399,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/GdUnitRunnerConfig.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "GdUnitSceneRunner",
 "language": "GDScript",
-"path": "res://addons/gdUnit3/src/core/GdUnitSceneRunner.gd"
+"path": "res://addons/gdUnit3/src/GdUnitSceneRunner.gd"
+}, {
+"base": "GdUnitSceneRunner",
+"class": "GdUnitSceneRunnerImpl",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/core/GdUnitSceneRunnerImpl.gd"
+}, {
+"base": "Reference",
+"class": "GdUnitScriptType",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/core/GdUnitScriptType.gd"
 }, {
 "base": "Reference",
 "class": "GdUnitSettings",
@@ -413,6 +428,11 @@ _global_script_classes=[ {
 "class": "GdUnitSignalAssertImpl",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/asserts/GdUnitSignalAssertImpl.gd"
+}, {
+"base": "Reference",
+"class": "GdUnitSignalAwaiter",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/core/GdUnitSignalAwaiter.gd"
 }, {
 "base": "Resource",
 "class": "GdUnitSingleton",
@@ -473,6 +493,11 @@ _global_script_classes=[ {
 "class": "GdUnitTestSuite",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/GdUnitTestSuite.gd"
+}, {
+"base": "Resource",
+"class": "GdUnitTestSuiteBuilder",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/core/GdUnitTestSuiteBuilder.gd"
 }, {
 "base": "Reference",
 "class": "GdUnitTestSuiteDefaultTemplate",
@@ -544,20 +569,25 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
+"base": "GdUnitMonitor",
+"class": "GodotGdErrorMonitor",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/monitor/GodotGdErrorMonitor.gd"
+}, {
 "base": "Fuzzer",
 "class": "IntFuzzer",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/fuzzers/IntFuzzer.gd"
 }, {
+"base": "Reference",
+"class": "JUnitXmlReport",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/report/JUnitXmlReport.gd"
+}, {
 "base": "Resource",
 "class": "LocalTime",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/LocalTime.gd"
-}, {
-"base": "GdUnitMonitor",
-"class": "PushErrorMonitor",
-"language": "GDScript",
-"path": "res://addons/gdUnit3/src/monitor/PushErrorMonitor.gd"
 }, {
 "base": "Reference",
 "class": "RPC",
@@ -639,6 +669,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/fuzzers/Vector3Fuzzer.gd"
 }, {
+"base": "Reference",
+"class": "XmlElement",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/report/XmlElement.gd"
+}, {
 "base": "Node",
 "class": "_TestCase",
 "language": "GDScript",
@@ -684,10 +719,12 @@ _global_script_class_icons={
 "GdUnitArrayAssertImpl": "",
 "GdUnitAssert": "",
 "GdUnitAssertImpl": "",
+"GdUnitAwaiter": "",
 "GdUnitBoolAssert": "",
 "GdUnitBoolAssertImpl": "",
 "GdUnitByPathReport": "",
 "GdUnitClassDoubler": "",
+"GdUnitConstants": "",
 "GdUnitDictionaryAssert": "",
 "GdUnitDictionaryAssertImpl": "",
 "GdUnitEvent": "",
@@ -718,7 +755,6 @@ _global_script_class_icons={
 "GdUnitPatch": "",
 "GdUnitPatcher": "",
 "GdUnitProperty": "",
-"GdUnitPushErrorHandler": "",
 "GdUnitReport": "",
 "GdUnitReportCollector": "",
 "GdUnitReportConsumer": "",
@@ -728,9 +764,12 @@ _global_script_class_icons={
 "GdUnitResultAssertImpl": "",
 "GdUnitRunnerConfig": "",
 "GdUnitSceneRunner": "",
+"GdUnitSceneRunnerImpl": "",
+"GdUnitScriptType": "",
 "GdUnitSettings": "",
 "GdUnitSignalAssert": "",
 "GdUnitSignalAssertImpl": "",
+"GdUnitSignalAwaiter": "",
 "GdUnitSingleton": "",
 "GdUnitSpyBuilder": "",
 "GdUnitSpyImpl": "",
@@ -743,6 +782,7 @@ _global_script_class_icons={
 "GdUnitTestCaseDto": "",
 "GdUnitTestCaseReport": "",
 "GdUnitTestSuite": "",
+"GdUnitTestSuiteBuilder": "",
 "GdUnitTestSuiteDefaultTemplate": "",
 "GdUnitTestSuiteDto": "",
 "GdUnitTestSuiteReport": "",
@@ -757,9 +797,10 @@ _global_script_class_icons={
 "GdUnitVector3Assert": "",
 "GdUnitVector3AssertImpl": "",
 "GitAPI": "",
+"GodotGdErrorMonitor": "",
 "IntFuzzer": "",
+"JUnitXmlReport": "",
 "LocalTime": "",
-"PushErrorMonitor": "",
 "RPC": "",
 "RPCClientConnect": "",
 "RPCClientDisconnect": "",
@@ -776,6 +817,7 @@ _global_script_class_icons={
 "ValueProvider": "",
 "Vector2Fuzzer": "",
 "Vector3Fuzzer": "",
+"XmlElement": "",
 "_TestCase": "",
 "_TestSuiteScanner": ""
 }
@@ -785,6 +827,10 @@ _global_script_class_icons={
 config/name="Unnamed Platformer Game"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerData="*res://src/Player/PlayerData.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
@@ -792,6 +838,37 @@ enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[gdunit3]
+
+settings/common/update_notification_enabled=false
+
+[input]
+
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [physics]
 
