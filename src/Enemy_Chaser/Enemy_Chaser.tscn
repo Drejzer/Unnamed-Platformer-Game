@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/Enemy_Chaser/enemy_chaser.png" type="Texture" id=1]
-[ext_resource path="res://src/Enemy_Chaser/Enemy_Chaser.gd" type="Script" id=2]
+[ext_resource path="res://enemy_chaser.png" type="Texture" id=1]
+[ext_resource path="res://Enemy_Chaser.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flying"
@@ -41,8 +41,8 @@ extents = Vector2( 10, 11 )
 radius = 59.3043
 
 [node name="Enemy_Chaser" type="KinematicBody2D"]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 8
+collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

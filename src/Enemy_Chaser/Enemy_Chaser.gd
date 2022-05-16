@@ -38,7 +38,8 @@ func _on_VisionArea_body_exited(body):
 	if layer == 2:
 		enemy = null
 
-
+func onGettingHit():
+	queue_free()
 		
 	
 		

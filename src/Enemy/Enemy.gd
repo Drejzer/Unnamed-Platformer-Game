@@ -5,6 +5,7 @@ const FLOOR = Vector2(0,-1)
 
 var velocity = Vector2()
 var direction = 1
+var layer = null
 
 func _ready():
 	pass
@@ -24,3 +25,6 @@ func _physics_process(delta):
 		direction *= -1
 		$Sprite.flip_h = !$Sprite.flip_h 
 		$RayCast2D.position.x *= -1
+
+func onGettingHit():
+	queue_free()
