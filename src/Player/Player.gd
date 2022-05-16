@@ -1,17 +1,51 @@
 extends KinematicBody2D
 
-export var speed:=200
+export var speed:=300
+export var jump_power:=500
+export var gravity:=1000
+## Position and direction sould be both Vector2
+signal Projectile_Fired(position, direction)
+signal Got_Hurt()
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+onready var velocity= Vector2.ZERO
+onready var anim_sprite:AnimatedSprite
 
+func move_handler():
+	velocity.x=0
+	velocity.x=Input.get_action_strength("right")*speed-Input.get_action_strength("left")*speed
+	if velocity.x!=0:
+		anim_sprite.play("walk")
+	else:
+		anim_sprite.play("idle")
+	if velocity.x<0:
+		self.scale.x=-1
+	elif velocity.x>0:
+		self.scale.x=1
 
-# Called when the node enters the scene tree for the first time.
+func jump():
+	if self.is_on_floor():
+		velocity.y=-jump_power
+
+func shoot():
+	emit_signal("Projectile_Fired",self.position,Vector2(self.scale.x*10,0))
+	print("pew")
+
 func _ready() -> void:
-	pass # Replace with function body.
+	anim_sprite=$AnimatedSprite
+	pass
 
+func on_getting_hit():
+	emit_signal("Got_Hurt")
+	pass
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _physics_process(delta: float) -> void:
+	move_handler()
+	velocity.y+=gravity*delta
+	velocity=move_and_slide(velocity)
+	if Input.is_action_just_pressed("jump"):
+		jump()
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
+
