@@ -5,6 +5,7 @@ export var jump_power:=500
 export var gravity:=1000
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(position, direction)
+signal Got_Hurt()
 
 onready var velocity= Vector2.ZERO
 onready var anim_sprite:AnimatedSprite
@@ -33,6 +34,11 @@ func _ready() -> void:
 	anim_sprite=$AnimatedSprite
 	pass
 
+func on_getting_hit():
+	emit_signal("Got_Hurt")
+	pass
+	
+
 func _physics_process(delta: float) -> void:
 	move_handler()
 	velocity.y+=gravity*delta
@@ -41,3 +47,5 @@ func _physics_process(delta: float) -> void:
 		jump()
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+		
+

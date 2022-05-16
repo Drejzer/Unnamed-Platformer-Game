@@ -21,6 +21,8 @@ animations = [ {
 height = 2.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
 collision/safe_margin = 0.075
 script = ExtResource( 1 )
 
