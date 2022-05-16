@@ -18,6 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
 height = 2.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -25,6 +26,7 @@ collision_layer = 2
 collision_mask = 9
 collision/safe_margin = 0.075
 script = ExtResource( 1 )
+jump_power = 250
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )

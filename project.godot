@@ -359,6 +359,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/GdUnitProperty.gd"
 }, {
+"base": "Node",
+"class": "GdUnitPushErrorHandler",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/network/GdUnitPushErrorHandler.gd"
+}, {
 "base": "Resource",
 "class": "GdUnitReport",
 "language": "GDScript",
@@ -399,7 +404,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/GdUnitRunnerConfig.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "GdUnitSceneRunner",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/GdUnitSceneRunner.gd"
@@ -564,30 +569,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/asserts/GdUnitVector3AssertImpl.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
-"base": "GdUnitMonitor",
-"class": "GodotGdErrorMonitor",
-"language": "GDScript",
-"path": "res://addons/gdUnit3/src/monitor/GodotGdErrorMonitor.gd"
-}, {
 "base": "Fuzzer",
 "class": "IntFuzzer",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/fuzzers/IntFuzzer.gd"
 }, {
-"base": "Reference",
-"class": "JUnitXmlReport",
-"language": "GDScript",
-"path": "res://addons/gdUnit3/src/report/JUnitXmlReport.gd"
-}, {
 "base": "Resource",
 "class": "LocalTime",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/LocalTime.gd"
+}, {
+"base": "GdUnitMonitor",
+"class": "PushErrorMonitor",
+"language": "GDScript",
+"path": "res://addons/gdUnit3/src/monitor/PushErrorMonitor.gd"
 }, {
 "base": "Reference",
 "class": "RPC",
@@ -668,11 +663,6 @@ _global_script_classes=[ {
 "class": "Vector3Fuzzer",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/fuzzers/Vector3Fuzzer.gd"
-}, {
-"base": "Reference",
-"class": "XmlElement",
-"language": "GDScript",
-"path": "res://addons/gdUnit3/src/report/XmlElement.gd"
 }, {
 "base": "Node",
 "class": "_TestCase",
@@ -755,6 +745,7 @@ _global_script_class_icons={
 "GdUnitPatch": "",
 "GdUnitPatcher": "",
 "GdUnitProperty": "",
+"GdUnitPushErrorHandler": "",
 "GdUnitReport": "",
 "GdUnitReportCollector": "",
 "GdUnitReportConsumer": "",
@@ -796,11 +787,9 @@ _global_script_class_icons={
 "GdUnitVector2AssertImpl": "",
 "GdUnitVector3Assert": "",
 "GdUnitVector3AssertImpl": "",
-"GitAPI": "",
-"GodotGdErrorMonitor": "",
 "IntFuzzer": "",
-"JUnitXmlReport": "",
 "LocalTime": "",
+"PushErrorMonitor": "",
 "RPC": "",
 "RPCClientConnect": "",
 "RPCClientDisconnect": "",
@@ -817,7 +806,6 @@ _global_script_class_icons={
 "ValueProvider": "",
 "Vector2Fuzzer": "",
 "Vector3Fuzzer": "",
-"XmlElement": "",
 "_TestCase": "",
 "_TestSuiteScanner": ""
 }
@@ -825,6 +813,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Unnamed Platformer Game"
+run/main_scene="res://src/levels/level_1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -833,11 +822,11 @@ PlayerData="*res://src/Player/PlayerData.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gdUnit3/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [gdunit3]
 
