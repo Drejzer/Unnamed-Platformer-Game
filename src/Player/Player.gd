@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export var speed:=300
-export var jump_power:=500
+export var speed:=200
+export var jump_power:=200
 export var gravity:=1000
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(position, direction)
@@ -23,7 +23,7 @@ func move_handler():
 		self.scale.x=1
 
 func jump():
-	if self.is_on_floor():
+	if is_on_floor():
 		velocity.y=-jump_power
 
 func shoot():
@@ -42,7 +42,7 @@ func on_getting_hit():
 func _physics_process(delta: float) -> void:
 	move_handler()
 	velocity.y+=gravity*delta
-	velocity=move_and_slide(velocity)
+	velocity=move_and_slide(velocity,Vector2.UP)
 	if Input.is_action_just_pressed("jump"):
 		jump()
 	if Input.is_action_just_pressed("shoot"):
