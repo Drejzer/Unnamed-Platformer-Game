@@ -4,7 +4,7 @@ export var speed:=200
 export var jump_power:=200
 export var gravity:=1000
 ## Position and direction sould be both Vector2
-signal Projectile_Fired(position, direction)
+signal Projectile_Fired(pos, dir,mask,damage)
 signal Got_Hurt()
 
 onready var velocity= Vector2.ZERO
@@ -27,8 +27,7 @@ func jump():
 		velocity.y=-jump_power
 
 func shoot():
-	emit_signal("Projectile_Fired",self.position,Vector2(self.scale.x*10,0))
-	print("pew")
+	emit_signal("Projectile_Fired",self.position,Vector2(self.scale.x*PlayerData.bullet_speed,0),9,PlayerData.bullet_power)
 
 func _ready() -> void:
 	anim_sprite=$AnimatedSprite

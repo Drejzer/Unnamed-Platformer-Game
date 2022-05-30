@@ -4,6 +4,8 @@ extends Node
 # var a: int = 2
 # var b: String = "text"
 
+var bullet_speed:=369
+var bullet_power:=1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

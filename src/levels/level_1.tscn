@@ -1270,3 +1270,5 @@ position = Vector2( 61, 148 )
 
 [node name="Enemy_Flying" parent="." instance=ExtResource( 56 )]
 position = Vector2( 178, 33 )
+
+[connection signal="Projectile_Fired" from="Player" to="." method="_on_Player_Projectile_Fired"]
