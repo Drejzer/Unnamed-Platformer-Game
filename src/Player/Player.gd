@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-export var speed:=200
+export var speed:=100
 export var jump_power:=200
 export var gravity:=1000
+var coins = 0
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(position, direction)
 signal Got_Hurt()
@@ -48,4 +49,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
-
+func add_coin():
+	coins = coins + 1
+	print("Coins collected: ",coins)

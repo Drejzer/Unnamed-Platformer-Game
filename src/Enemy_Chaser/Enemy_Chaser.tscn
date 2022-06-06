@@ -38,7 +38,7 @@ tracks/0/keys = {
 extents = Vector2( 10, 11 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 135.015
+radius = 106.019
 
 [node name="Enemy_Chaser" type="KinematicBody2D"]
 collision_layer = 8
