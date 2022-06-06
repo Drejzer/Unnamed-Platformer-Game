@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed:=100
 export var jump_power:=200
 export var gravity:=1000
-var coins = 0 #move to PlayerData
+
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(pos, dir,mask,damage)
 signal Got_Hurt()
@@ -13,7 +13,7 @@ onready var anim_sprite:AnimatedSprite
 onready var layer = null
 var ishurt:=false
 
-func move_handler(delta:float):
+func move_handler(_delta:float):
 	velocity.x=0
 	velocity.x=Input.get_action_strength("right")*speed-Input.get_action_strength("left")*speed
 	if velocity.x!=0:
@@ -30,7 +30,7 @@ func jump():
 		velocity.y=-jump_power
 
 func shoot():
-	emit_signal("Projectile_Fired",self.position,Vector2(self.scale.x*PlayerData.bullet_speed,0),9,PlayerData.bullet_power)
+	emit_signal("Projectile_Fired",self.position,Vector2(anim_sprite.scale.x*PlayerData.bullet_speed,0),9,PlayerData.bullet_power)
 
 func _ready() -> void:
 	anim_sprite=$AnimatedSprite
@@ -68,8 +68,9 @@ func _on_ITImer_timeout() -> void:
 	pass # Replace with function body.
 
 func add_coin():
-	coins = coins + 1
-	print("Coins collected: ",coins)
+	PlayerData.CoinsCollected+=1
+	PlayerData.TotalCoins+=1
+	print("Total Coins collected: ",PlayerData.TotalCoins)
 
 
 

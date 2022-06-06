@@ -11,4 +11,3 @@ func _on_Player_Projectile_Fired(pos, dir,mask,damage) -> void:
 	nbull.damage=damage
 	nbull.collision_mask=mask
 	add_child(nbull)
-	

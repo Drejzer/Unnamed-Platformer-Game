@@ -18,5 +18,5 @@ func _physics_process(delta):
 		$Sprite.flip_h = !$Sprite.flip_h 
 		$Timer.start()	
 
-func onGettingHit():
+func _on_getting_hit():
 	queue_free()

@@ -26,5 +26,5 @@ func _physics_process(delta):
 		$Sprite.flip_h = !$Sprite.flip_h 
 		$RayCast2D.position.x *= -1
 
-func onGettingHit():
+func _on_getting_hit():
 	queue_free()

@@ -1,7 +1,15 @@
 extends Area2D
 
 
-var direction:Vector2
+var direction:Vector2 setget dirset
+
+func dirset(val:Vector2):
+	if val.x<0:
+		$Sprite.scale.x=-1
+	elif val.x>0:
+		$Sprite.scale.x=1
+	direction=val
+	
 var damage:=1
 
 func _ready() -> void:

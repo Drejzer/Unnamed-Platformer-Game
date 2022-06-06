@@ -933,3 +933,5 @@ position = Vector2( 197, 8 )
 
 [node name="flag" parent="." instance=ExtResource( 37 )]
 position = Vector2( 963, -153 )
+
+[connection signal="Projectile_Fired" from="Player" to="." method="_on_Player_Projectile_Fired"]
