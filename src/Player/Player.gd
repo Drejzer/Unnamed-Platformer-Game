@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-export var speed:=200
-export var jump_power:=275
+export var speed:=100
+export var jump_power:=200
 export var gravity:=1000
+var coins = 0 #move to PlayerData
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(position, direction)
 signal Got_Hurt()
@@ -61,10 +62,13 @@ func _physics_process(delta: float) -> void:
 		shoot()
 		
 
-
-
 func _on_ITImer_timeout() -> void:
 	collision_mask=collision_mask|0b1000
 	ishurt=false
 	print(collision_mask)
 	pass # Replace with function body.
+
+func add_coin():
+	coins = coins + 1
+	print("Coins collected: ",coins)
+
