@@ -5,8 +5,13 @@ signal PlayerDied
 # var a: int = 2
 # var b: String = "text"
 
+
+var bullet_speed:=369
+var bullet_power:=1
+var CoinsCollected:=0
 var MaxHealth:=3
 var CurrentHealth:=3 setget CurrentHealth_set, CurrentHealth_get
+
 
 func CurrentHealth_set(nch:int):
 	CurrentHealth=int(clamp(nch,0,MaxHealth))
