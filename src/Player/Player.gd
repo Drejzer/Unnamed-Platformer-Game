@@ -30,7 +30,7 @@ func jump():
 		velocity.y=-jump_power
 
 func shoot():
-	emit_signal("Projectile_Fired",self.position,Vector2(anim_sprite.scale.x*PlayerData.bullet_speed,0),9,PlayerData.bullet_power)
+	emit_signal("Projectile_Fired",Vector2(self.position.x+anim_sprite.scale.x*7,self.position.y),Vector2(anim_sprite.scale.x*PlayerData.bullet_speed,0),9,PlayerData.bullet_power)
 
 func _ready() -> void:
 	anim_sprite=$AnimatedSprite
