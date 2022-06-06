@@ -10,7 +10,7 @@ signal Got_Hurt()
 
 onready var velocity= Vector2.ZERO
 onready var anim_sprite:AnimatedSprite
-
+onready var layer = null
 var ishurt:=false
 
 func move_handler(delta:float):
@@ -41,7 +41,7 @@ func on_getting_hit():
 	emit_signal("Got_Hurt")
 	PlayerData.CurrentHealth-=1
 	print(collision_mask)
-	collision_mask=collision_mask&0b0111
+	collision_mask=collision_mask&0b111111111111111110111
 	print(collision_mask)
 	ishurt=true
 	$ITImer.start(0.77)
@@ -72,3 +72,9 @@ func add_coin():
 	coins = coins + 1
 	print("Coins collected: ",coins)
 
+
+
+func _on_GettingHitArea_body_entered(body):
+	layer = body.get_collision_layer()
+	if layer == 8:
+		on_getting_hit()
