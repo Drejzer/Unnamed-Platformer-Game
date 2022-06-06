@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed:=100
 export var jump_power:=200
 export var gravity:=1000
-var coins = 0
+var coins = 0 #move to PlayerData
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(position, direction)
 signal Got_Hurt()
@@ -11,7 +11,9 @@ signal Got_Hurt()
 onready var velocity= Vector2.ZERO
 onready var anim_sprite:AnimatedSprite
 
-func move_handler():
+var ishurt:=false
+
+func move_handler(delta:float):
 	velocity.x=0
 	velocity.x=Input.get_action_strength("right")*speed-Input.get_action_strength("left")*speed
 	if velocity.x!=0:
@@ -19,17 +21,17 @@ func move_handler():
 	else:
 		anim_sprite.play("idle")
 	if velocity.x<0:
-		self.scale.x=-1
+		anim_sprite.scale.x=-1
 	elif velocity.x>0:
-		self.scale.x=1
+		anim_sprite.scale.x=1
 
 func jump():
-	if is_on_floor():
+	if self.is_on_floor():
 		velocity.y=-jump_power
 
 func shoot():
-	emit_signal("Projectile_Fired",self.position,Vector2(self.scale.x*10,0))
-	print("pew")
+	emit_signal("Projectile_Fired",self.position,Vector2($AnimatedSprite/RayCast2D.cast_to*anim_sprite.scale))
+	print("pew",$AnimatedSprite/RayCast2D.cast_to*anim_sprite.scale)
 
 func _ready() -> void:
 	anim_sprite=$AnimatedSprite
@@ -37,11 +39,21 @@ func _ready() -> void:
 
 func on_getting_hit():
 	emit_signal("Got_Hurt")
+	PlayerData.CurrentHealth-=1
+	print(collision_mask)
+	collision_mask=collision_mask&0b0111
+	print(collision_mask)
+	ishurt=true
+	$ITImer.start(0.77)
+	velocity=Vector2(-anim_sprite.scale.x*300,-222)
 	pass
 	
 
 func _physics_process(delta: float) -> void:
-	move_handler()
+	if !ishurt:
+		move_handler(delta)
+	else:
+		velocity.x=lerp(velocity.x,0,delta*5)
 	velocity.y+=gravity*delta
 	velocity=move_and_slide(velocity,Vector2.UP)
 	if Input.is_action_just_pressed("jump"):
@@ -49,6 +61,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
+
+func _on_ITImer_timeout() -> void:
+	collision_mask=collision_mask|0b1000
+	ishurt=false
+	print(collision_mask)
+	pass # Replace with function body.
+
 func add_coin():
 	coins = coins + 1
 	print("Coins collected: ",coins)
+
