@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://src/Enemy/enemy_move.png" type="Texture" id=2]
+[ext_resource path="res://src/Enemy/smoke_enemy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 11 )
@@ -58,3 +59,9 @@ cast_to = Vector2( 0, 13 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 "anims/Walk Right" = SubResource( 2 )
+
+[node name="Smoke" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.5, 0.5 )
+scale = Vector2( 1.04167, 1.04167 )
+texture = ExtResource( 3 )

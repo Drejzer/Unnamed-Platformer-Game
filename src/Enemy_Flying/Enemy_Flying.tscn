@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Enemy_Flying/enemy_flying.png" type="Texture" id=1]
 [ext_resource path="res://src/Enemy_Flying/Enemy_Flying.gd" type="Script" id=2]
+[ext_resource path="res://src/Enemy_Flying/smoke_enemy.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fly"
@@ -58,3 +59,7 @@ shape = SubResource( 3 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Smoke" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )

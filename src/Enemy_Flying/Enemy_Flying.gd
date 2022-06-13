@@ -19,4 +19,8 @@ func _physics_process(delta):
 		$Timer.start()	
 
 func _on_getting_hit():
+	$Sprite.visible = false
+	$Smoke.visible = true
+	yield(get_tree().create_timer(0.05), "timeout")
 	queue_free()
+	
