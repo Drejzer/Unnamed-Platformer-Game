@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 PlayerData="*res://src/Player/PlayerData.gd"
 
+[display]
+
+window/size/resizable=false
+
 [editor_plugins]
 
 enabled=PoolStringArray(  )
