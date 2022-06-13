@@ -39,6 +39,9 @@ func _on_VisionArea_body_exited(body):
 		enemy = null
 
 func _on_getting_hit():
+	$Sprite.visible = false
+	$Smoke.visible = true
+	yield(get_tree().create_timer(0.05), "timeout")
 	queue_free()
 		
 	
