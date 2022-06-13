@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
 export var speed:=100
-export var jump_power:=200
+export var jump_power:=300
 export var gravity:=1000
 
 ## Position and direction sould be both Vector2
 signal Projectile_Fired(pos, dir,mask,damage)
 signal Got_Hurt()
+signal life_changed(value)
+signal update_coins(value)
 
 onready var velocity= Vector2.ZERO
 onready var anim_sprite:AnimatedSprite
@@ -34,17 +36,26 @@ func shoot():
 
 func _ready() -> void:
 	anim_sprite=$AnimatedSprite
+	var h = get_node("HUD/Life")
+	#h.connect("life_changed", self, "on_player_life_changed()")
+	connect("life_changed",get_node("HUD/Life"),"on_player_life_changed")
+	connect("update_coins", get_node("HUD/Coins"),"on_player_coins_changed")
+	emit_signal("life_changed", PlayerData.MaxHealth)
+	emit_signal("update_coins", 0)
 	pass
 
 func on_getting_hit():
-	emit_signal("Got_Hurt")
 	PlayerData.CurrentHealth-=1
+	emit_signal("Got_Hurt")
+	emit_signal("life_changed", PlayerData.CurrentHealth)
+	print(PlayerData.CurrentHealth)
 	print(collision_mask)
 	collision_mask=collision_mask&0b111111111111111110111
 	print(collision_mask)
 	ishurt=true
 	$ITImer.start(0.77)
 	velocity=Vector2(-anim_sprite.scale.x*300,-222)
+	
 	pass
 	
 
@@ -71,6 +82,7 @@ func add_coin():
 	PlayerData.CoinsCollected+=1
 	PlayerData.TotalCoins+=1
 	print("Total Coins collected: ",PlayerData.TotalCoins)
+	emit_signal("update_coins",PlayerData.TotalCoins)
 
 
 

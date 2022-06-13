@@ -8,3 +8,5 @@ func _on_flag_body_entered(body):
 		PlayerData.CoinsCollected=0
 		if(PlayerData.level < 4):
 			get_tree().change_scene("res://src/levels/level_" + str(PlayerData.level) + ".tscn")
+		else:
+			get_tree().change_scene("res://src/GUI/Menu.tscn")
