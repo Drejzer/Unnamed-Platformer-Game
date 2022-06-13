@@ -836,6 +836,7 @@ position = Vector2( 827, -293 )
 
 [node name="Player" parent="." instance=ExtResource( 54 )]
 position = Vector2( -17, 0 )
+jump_power = 250
 
 [node name="coins" type="Area2D" parent="."]
 

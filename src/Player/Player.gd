@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var speed:=100
-export var jump_power:=300
+export var jump_power:=250
 export var gravity:=1000
 
 ## Position and direction sould be both Vector2
@@ -41,7 +41,7 @@ func _ready() -> void:
 	connect("life_changed",get_node("HUD/Life"),"on_player_life_changed")
 	connect("update_coins", get_node("HUD/Coins"),"on_player_coins_changed")
 	emit_signal("life_changed", PlayerData.MaxHealth)
-	emit_signal("update_coins", 0)
+	emit_signal("update_coins", PlayerData.TotalCoins)
 	pass
 
 func on_getting_hit():
