@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/character_0000.png" type="Texture" id=2]
 [ext_resource path="res://src/Player/character_0001.png" type="Texture" id=3]
+[ext_resource path="res://Tiles/tile_0044.png" type="Texture" id=4]
+[ext_resource path="res://src/Player/Life.gd" type="Script" id=5]
+[ext_resource path="res://Tiles/tile_0151.png" type="Texture" id=6]
+[ext_resource path="res://src/Player/Coins.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -62,6 +66,42 @@ smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GettingHitArea"]
 shape = SubResource( 4 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Life" type="Control" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="Hearts" type="TextureRect" parent="HUD/Life"]
+margin_right = 21.0
+margin_bottom = 20.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="Coins" type="Control" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Coins"]
+anchor_top = 2.717
+anchor_bottom = 2.717
+margin_top = -90.68
+margin_right = 19.0
+margin_bottom = -71.68
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="NumCoins" type="Label" parent="HUD/Coins"]
+margin_left = 17.0
+margin_top = 21.0
+margin_right = 43.0
+margin_bottom = 35.0
+text = "100"
 
 [connection signal="timeout" from="ITImer" to="." method="_on_ITImer_timeout"]
 [connection signal="body_entered" from="GettingHitArea" to="." method="_on_GettingHitArea_body_entered"]
