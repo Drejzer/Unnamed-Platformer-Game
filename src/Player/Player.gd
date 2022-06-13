@@ -60,17 +60,22 @@ func on_getting_hit():
 	
 
 func _physics_process(delta: float) -> void:
-	if !ishurt:
-		move_handler(delta)
+	if PlayerData.CurrentHealth > 0:
+		if !ishurt:
+			move_handler(delta)
+		else:
+			velocity.x=lerp(velocity.x,0,delta*5)
+		velocity.y+=gravity*delta
+		velocity=move_and_slide(velocity,Vector2.UP)
+		if Input.is_action_just_pressed("jump"):
+			jump()
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
 	else:
-		velocity.x=lerp(velocity.x,0,delta*5)
-	velocity.y+=gravity*delta
-	velocity=move_and_slide(velocity,Vector2.UP)
-	if Input.is_action_just_pressed("jump"):
-		jump()
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
-		
+		PlayerData.CurrentHealth = 3
+		PlayerData.TotalCoins-=PlayerData.CoinsCollected
+		PlayerData.CoinsCollected=0
+		get_tree().reload_current_scene()
 
 func _on_ITImer_timeout() -> void:
 	collision_mask=collision_mask|0b1000
